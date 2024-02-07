@@ -1,6 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
-import USAMap from 'react-usa-map';
+import Navbar from './Navbar/Navbar';
 
 function App() {
   const mapHandler = (event) => {
@@ -8,8 +7,9 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <USAMap onClick={mapHandler} />
+    <div>
+      <Navbar />
+      <br></br>
     </div>
   );
 }
