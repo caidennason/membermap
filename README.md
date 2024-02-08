@@ -4,4 +4,5 @@
 # Installation
 
 
-# Stretch
+# To do
+Figure out which open secrets api is best to find a candidate based on state only - other apis require specific id's, but for this, i need to search only by state
