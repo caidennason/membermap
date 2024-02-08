@@ -188,7 +188,7 @@ const Map = () => {
             //   onMouseEnter={handleHoverEnter}
             //   onMouseLeave={handleHoverExit}
               />
-              <StateDialog dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState}/> 
+              <StateDialog setDialogState={setDialogState} dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState}/> 
         </>
     )
 }
