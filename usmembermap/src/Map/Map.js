@@ -29,138 +29,138 @@ const Map = () => {
         handleDialogOpen()
         if (e.target.dataset.name === "CA"){
             setUsState("California")
-            alert("California") 
+            // alert("California") 
         } else if (e.target.dataset.name === "NY") {
-            alert("New York")
+            // alert("New York")
             setUsState("New York")
         } else if (e.target.dataset.name === "OR") {
-            alert("Oregon") 
+            // alert("Oregon") 
             setUsState("Oregon")
         } else if (e.target.dataset.name === "WA") {
-            alert("Washington")
+            // alert("Washington")
             setUsState("Washington")
         } else if (e.target.dataset.name === "ID") {
-            alert("Idaho")
+            // alert("Idaho")
             setUsState("Idaho")
         } else if (e.target.dataset.name === "UT") {
-            alert("Utah")
+            // alert("Utah")
             setUsState("Idaho")
         } else if (e.target.dataset.name === "NV") {
-            alert("Nevada")
+            // alert("Nevada")
             setUsState("Nevada")
         } else if (e.target.dataset.name === "AZ") {
-            alert("Arizona")
+            // alert("Arizona")
             setUsState("Arizona")
         } else if (e.target.dataset.name === "MT") {
-            alert("Montana")
+            // alert("Montana")
             setUsState("Montana")
         } else if (e.target.dataset.name === "WY") {
-            alert("Wyoming")
+            // alert("Wyoming")
             setUsState("Wyoming")
         } else if (e.target.dataset.name === "CO") {
-            alert("Colorado")
+            // alert("Colorado")
             setUsState("Colorado")
         } else if (e.target.dataset.name === "NM") {
-            alert("New Mexico")
+            // alert("New Mexico")
             setUsState("New Mexico")
         } else if (e.target.dataset.name === "ND") {
-            alert("North Dakota")
+            // alert("North Dakota")
             setUsState("North Dakota")
         } else if (e.target.dataset.name === "SD") {
-            alert("South Dakota")
+            // alert("South Dakota")
             setUsState("South Dakota")
         } else if (e.target.dataset.name === "NE") {
-            alert("Nebraska")
+            // alert("Nebraska")
             setUsState("Nebraska")
         } else if (e.target.dataset.name === "KS") {
-            alert("Kansas")
+            // alert("Kansas")
             setUsState("Kansas")
         } else if (e.target.dataset.name === "OK") {
-            alert("Oklahoma")
+            // alert("Oklahoma")
             setUsState("Oklahoma")
         } else if (e.target.dataset.name === "TX") {
-            alert("Texas")
+            // alert("Texas")
             setUsState("Texas")
         } else if (e.target.dataset.name === "MN") {
-            alert("Minnesota")
+            // alert("Minnesota")
             setUsState("Minnesota")
         } else if (e.target.dataset.name === "IA") {
-            alert("Iowa")
+            // alert("Iowa")
             setUsState("Iowa")
         } else if (e.target.dataset.name === "MO") {
-            alert("Missouri")
+            // alert("Missouri")
             setUsState("Missouri")
         } else if (e.target.dataset.name === "AR") {
-            alert("Arkansas")
+            // alert("Arkansas")
             setUsState("Arkansas")
         } else if (e.target.dataset.name === "LA") {
-            alert("Louisiana")
+            // alert("Louisiana")
             setUsState("Louisiana")
         } else if (e.target.dataset.name === "MI") {
-            alert("Michigan")
+            // alert("Michigan")
             setUsState("Michigan")
         } else if (e.target.dataset.name === "IL") {
-            alert("Illinois")
+            // alert("Illinois")
             setUsState("Illinois")
         } else if (e.target.dataset.name === "KY") {
-            alert("Kentucky")
+            // alert("Kentucky")
             setUsState("Kentucky")
         } else if (e.target.dataset.name === "TN") {
-            alert("Tennessee")
+            // alert("Tennessee")
             setUsState("Tennessee")
         } else if (e.target.dataset.name === "MS") {
-            alert("Mississippi")
+            // alert("Mississippi")
             setUsState("Mississippi")
         } else if (e.target.dataset.name === "AL") {
-            alert("Alabama")
+            // alert("Alabama")
             setUsState("Alabama")
         } else if (e.target.dataset.name === "GA") {
-            alert("Georgia")
+            // alert("Georgia")
             setUsState("Georgia")
         } else if (e.target.dataset.name === "FL") {
-            alert("Florida")
+            // alert("Florida")
             setUsState("Florida")
         } else if (e.target.dataset.name === "SC") {
-            alert("South Carolina")
+            // alert("South Carolina")
             setUsState("South Carolina")
         } else if (e.target.dataset.name === "NC") {
-            alert("North Carolina")
+            // alert("North Carolina")
             setUsState("North Carolina")
         } else if (e.target.dataset.name === "VA") {
-            alert("Virginia")
+            // alert("Virginia")
             setUsState("Virginia")
         } else if (e.target.dataset.name === "WV") {
-            alert("West Virginia")
+            // alert("West Virginia")
             setUsState("West Virginia")
         } else if (e.target.dataset.name === "MD") {
-            alert("Maryland")
+            // alert("Maryland")
             setUsState("Maryland")
         } else if (e.target.dataset.name === "PA") {
-            alert("Pennsylvania")
+            // alert("Pennsylvania")
             setUsState("Pennsylvania")
         } else if (e.target.dataset.name === "NJ") {
-            alert("New Jersey")
+            // alert("New Jersey")
             setUsState("New Jersey")
         } else if (e.target.dataset.name === "MD") {
-            alert("Maryland")
+            // alert("Maryland")
             setUsState("Maryland")
         } else if (e.target.dataset.name === "CT") {
-            alert("Connecticut")
+            // alert("Connecticut")
             setUsState("Connecticut")
         } else if (e.target.dataset.name === "RI") {
-            alert("Rhode Island")
+            // alert("Rhode Island")
             setUsState("Rhode Island")
         } else if (e.target.dataset.name === "VT") {
-            alert("Vermont")
+            // alert("Vermont")
             setUsState("Vermont")
         } else if (e.target.dataset.name === "NH") {
-            alert("New Hampshire")
+            // alert("New Hampshire")
             setUsState("New Hampshire")
         } else if (e.target.dataset.name === "MD") {
-            alert("Maryland")
+            // alert("Maryland")
             setUsState("Maryland")
         } else if (e.target.dataset.name === "ME") {
-            alert("Maine")
+            // alert("Maine")
             setUsState("Maine")
         } else if (e.target.dataset.name === "AK") {
             // alert("Alaska")
@@ -168,6 +168,9 @@ const Map = () => {
         } else if (e.target.dataset.name === "HI") {
             // alert("Hawaii")
             setUsState("Hawaii")
+        } else if (e.target.dataset.name === "WI") {
+            // alert("Pennsylvania")
+            setUsState("Wisconsin")
         } else {
           alert(e.target.dataset.name)
         }
