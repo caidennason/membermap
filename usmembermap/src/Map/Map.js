@@ -5,6 +5,7 @@ const Map = () => {
 
     const mapHandler = (event) => {
         alert(event.target.dataset.name);
+        console.log(event.target.dataset)
       };
 
     return (
