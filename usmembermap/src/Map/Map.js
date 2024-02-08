@@ -1,10 +1,20 @@
 import React, {useState} from 'react';
 import USAMap from 'react-usa-map';
+import StateDialog from './StateDialog';
 
 const Map = () => {
 
     // const [stateHoveredState, setHoveredState] = useState(null)
     const [usState, setUsState] = useState(null)
+    const [dialogState, setDialogState] = useState(false)
+
+    const handleDialogOpen = () => {
+        setDialogState(true)
+    }
+
+    const handleDialogClose = () => {
+        setDialogState(false)
+    }
 
     // const handleHoverEnter = (e) => {
     //     setHoveredState(e.target.dataset.name)
@@ -16,6 +26,7 @@ const Map = () => {
     // }
 
     const mapHandler = (e) => {
+        handleDialogOpen()
         if (e.target.dataset.name === "CA"){
             setUsState("California")
             alert("California") 
@@ -176,6 +187,7 @@ const Map = () => {
             //   onMouseLeave={handleHoverExit}
                 onMouseEnter={(e) => console.log(e)}
               />
+              <StateDialog dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState}/> 
         </>
     )
 }
