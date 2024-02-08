@@ -183,12 +183,10 @@ const Map = () => {
         <br></br>
         <br></br>
         <br></br>
-        <p>{usState}</p>
               <USAMap 
                 onClick={mapHandler} 
             //   onMouseEnter={handleHoverEnter}
             //   onMouseLeave={handleHoverExit}
-                onMouseEnter={(e) => console.log(e)}
               />
               <StateDialog dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState}/> 
         </>

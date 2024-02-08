@@ -5,4 +5,6 @@
 
 
 # To do
-Figure out which open secrets api is best to find a candidate based on state only - other apis require specific id's, but for this, i need to search only by state
+Figure out which open secrets api is best to find a candidate - candIndustry
+Do I need to manually put in each senators CID on the frontend, and send that request to the backend? 
+Set election year option (2018, 2020, 2022) - would be a dropdown menu with the options
