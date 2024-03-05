@@ -4,8 +4,6 @@ import DryIcon from '@mui/icons-material/Dry';
 
 const Home = () => {
 
-
-
     return(
         <div>
             <br></br>
