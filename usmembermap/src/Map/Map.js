@@ -7,6 +7,13 @@ const Map = () => {
     // const [stateHoveredState, setHoveredState] = useState(null)
     const [usState, setUsState] = useState(null)
     const [dialogState, setDialogState] = useState(false)
+    const [seniorSenatorCID, setSeniorSenatorCID] = useState(null)
+    const [seniorSenatorName, setSeniorSenatorName] = useState(null)
+    const [juniorSenatorCID, setJuniorSenatorCID] = useState(null)
+    const [juniorSenatorName, setJuniorSenatorName] = useState(null)
+    console.log(seniorSenatorCID, seniorSenatorName)
+    console.log(juniorSenatorCID, juniorSenatorName)
+
 
     const handleDialogOpen = () => {
         setDialogState(true)
@@ -29,6 +36,10 @@ const Map = () => {
         handleDialogOpen()
         if (e.target.dataset.name === "CA"){
             setUsState("California")
+            setSeniorSenatorCID('S0CA00199')
+            setSeniorSenatorName('Dianne Feinstein')
+            setJuniorSenatorCID('S2CA00955')
+            setJuniorSenatorName('Alex Padilla')
             // alert("California") 
         } else if (e.target.dataset.name === "NY") {
             // alert("New York")
@@ -188,7 +199,7 @@ const Map = () => {
             //   onMouseEnter={handleHoverEnter}
             //   onMouseLeave={handleHoverExit}
               />
-              <StateDialog setDialogState={setDialogState} dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState}/> 
+              <StateDialog setDialogState={setDialogState} dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState} seniorSenatorName={seniorSenatorName} juniorSenatorName={juniorSenatorName}/> 
         </>
     )
 }
