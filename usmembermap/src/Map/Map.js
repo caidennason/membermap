@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import USAMap from 'react-usa-map';
 import StateDialog from './StateDialog';
-const csv = require('csv-parser')
-const fs = require('fs')
-const results = [];
 
 const Map = () => {
 
@@ -13,11 +10,6 @@ const Map = () => {
     const [seniorSenatorName, setSeniorSenatorName] = useState(null)
     const [juniorSenatorCID, setJuniorSenatorCID] = useState(null)
     const [juniorSenatorName, setJuniorSenatorName] = useState(null)
-
-    useEffect(() => {
-
-    }, [])
-
 
     const handleDialogOpen = () => {
         setDialogState(true)

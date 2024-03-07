@@ -12,7 +12,9 @@ class ApiDataController < ApplicationController
 
         Rails.logger.info("API Key: #{@api_key}")
 
-        url = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=N00000270&output=json&cycle=2020&apikey=#{@api_key}")
+        cid = params[:cid]
+
+        url = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=#{cid}&output=json&cycle=2020&apikey=#{@api_key}")
 
         response = Net::HTTP.get(url)
 
