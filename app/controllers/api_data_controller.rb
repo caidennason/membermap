@@ -13,19 +13,28 @@ class ApiDataController < ApplicationController
         Rails.logger.info("API Key: #{@api_key}")
 
         cid = params[:cid]
+        response_data = []
 
-        url = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=#{cid}&output=json&cycle=2020&apikey=#{@api_key}")
+        # loop through the url to get the most recent year your selected candidate ran for office -- ex: padilla didn't run in 2022, so find the last tiem he ran
 
+        [2016, 2018, 2020, 2022].each do |year|
+        begin
+        url = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=#{cid}&output=json&cycle=#{year}&apikey=#{@api_key}")
         response = Net::HTTP.get(url)
 
         if response.present?
             render json: response
+            return
           else
             render json: { error: 'Empty API response' }, status: :unprocessable_entity
-          end
+            return
+        end
+        
         rescue StandardError => e
           Rails.logger.error("Error fetching API data: #{e.message}")
-          render json: { error: 'An error occurred while fetching API data' }, status: :unprocessable_entity
+          # render json: { error: 'An error occurred while fetching API data' }, status: :unprocessable_entity
         end
-
+        end
+        render json: { error: 'An error occurred while fetching API data' }, status: :unprocessable_entity
+      end
     end

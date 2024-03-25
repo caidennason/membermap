@@ -6,5 +6,4 @@ Rails.application.routes.draw do
 
   get '/api_data', to: 'api_data#show'
 
-  
 end

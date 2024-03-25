@@ -11,12 +11,19 @@ const Map = () => {
     const [juniorSenatorCID, setJuniorSenatorCID] = useState(null)
     const [juniorSenatorName, setJuniorSenatorName] = useState(null)
 
+    console.log(juniorSenatorCID, juniorSenatorName)
+
     const handleDialogOpen = () => {
         setDialogState(true)
     }
 
     const handleDialogClose = () => {
         setDialogState(false)
+    }
+
+    const getMemberInfo = () => {
+        fetch('/api_data')
+
     }
 
     const mapHandler = (e) => {
@@ -135,8 +142,6 @@ const Map = () => {
         <br></br>
               <USAMap 
                 onClick={mapHandler} 
-            //   onMouseEnter={handleHoverEnter}
-            //   onMouseLeave={handleHoverExit}
               />
               <StateDialog setDialogState={setDialogState} dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState} seniorSenatorName={seniorSenatorName} juniorSenatorName={juniorSenatorName}/> 
         </>
