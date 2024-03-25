@@ -10,6 +10,7 @@ const Map = () => {
     const [seniorSenatorName, setSeniorSenatorName] = useState(null)
     const [juniorSenatorCID, setJuniorSenatorCID] = useState(null)
     const [juniorSenatorName, setJuniorSenatorName] = useState(null)
+    const [financeInformation, setFinanceInformation] = useState([])
 
     console.log(juniorSenatorCID, juniorSenatorName)
 
@@ -27,7 +28,7 @@ const Map = () => {
             console.log(res); 
             return res.json();
         })
-        .then((data) => data);
+        .then((data) => console.log(data));
     }
 
     const handleDialogOpen = () => {
