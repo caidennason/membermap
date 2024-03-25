@@ -13,6 +13,26 @@ const Map = () => {
 
     console.log(juniorSenatorCID, juniorSenatorName)
 
+    const sendSenatorInformation = (seniorSenatorCID) => {
+        return fetch(`/api_data?cid=${seniorSenatorCID}`, {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        .then((res) => {
+            if (!res.ok) {
+                return res.json()
+                .then((errorData) => {
+                    throw new Error(errorData.error)
+                })
+            }
+            console.log(res); 
+            return res.json();
+        })
+        .then((data) => data);
+    }
+
     const handleDialogOpen = () => {
         setDialogState(true)
     }
@@ -34,6 +54,7 @@ const Map = () => {
             setSeniorSenatorName('Dianne Feinstein')
             setJuniorSenatorCID('S2CA00955')
             setJuniorSenatorName('Alex Padilla')
+            sendSenatorInformation(seniorSenatorCID)
         } else if (e.target.dataset.name === "NY") {
             setUsState("New York")
         } else if (e.target.dataset.name === "OR") {
