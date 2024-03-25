@@ -13,8 +13,9 @@ const Map = () => {
 
     console.log(juniorSenatorCID, juniorSenatorName)
 
+
     const sendSenatorInformation = (seniorSenatorCID) => {
-        return fetch(`/api_data?cid=${seniorSenatorCID}`, {
+        return fetch(`/api_data?cid=N00007360`, {
             method: "GET",
             headers: {
                 "Accept": "application/json"
