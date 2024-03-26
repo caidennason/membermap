@@ -16,7 +16,7 @@ const Map = () => {
 
 
     const sendSenatorInformation = (seniorSenatorCID) => {
-        return fetch(`http://localhost:3000/api_data?cid=N00007364`) 
+        return fetch(`http://localhost:3000/api_data?cid=${seniorSenatorCID}`) 
         .then((res) => {
             if (!res.ok) {
                 console.log(res)
@@ -28,8 +28,10 @@ const Map = () => {
             console.log(res); 
             return res.json();
         })
-        .then((data) => console.log(data));
+        .then((data) => setFinanceInformation(data));
     }
+
+    console.log(financeInformation)
 
     const handleDialogOpen = () => {
         setDialogState(true)
@@ -50,6 +52,8 @@ const Map = () => {
             sendSenatorInformation(seniorSenatorCID)
         } else if (e.target.dataset.name === "NY") {
             setUsState("New York")
+            setSeniorSenatorCID('N00001093')
+            setSeniorSenatorName('Chuck Schumer')
         } else if (e.target.dataset.name === "OR") {
             setUsState("Oregon")
         } else if (e.target.dataset.name === "WA") {
