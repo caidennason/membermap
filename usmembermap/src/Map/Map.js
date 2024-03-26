@@ -14,6 +14,12 @@ const Map = () => {
 
     console.log(juniorSenatorCID, juniorSenatorName)
 
+    useEffect(() => {
+        if (seniorSenatorCID) {
+            sendSenatorInformation(seniorSenatorCID)
+        }
+    }, [seniorSenatorCID])
+
 
     const sendSenatorInformation = (seniorSenatorCID) => {
         return fetch(`http://localhost:3000/api_data?cid=${seniorSenatorCID}`) 
@@ -49,7 +55,7 @@ const Map = () => {
             setSeniorSenatorName('Dianne Feinstein')
             setJuniorSenatorCID('N00047888')
             setJuniorSenatorName('Alex Padilla')
-            sendSenatorInformation(seniorSenatorCID)
+            // sendSenatorInformation(seniorSenatorCID)
         } else if (e.target.dataset.name === "NY") {
             setUsState("New York")
             setSeniorSenatorCID('N00001093')
