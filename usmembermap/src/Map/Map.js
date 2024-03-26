@@ -15,14 +15,14 @@ const Map = () => {
     console.log(juniorSenatorCID, juniorSenatorName)
 
     useEffect(() => {
-        if (seniorSenatorCID) {
-            sendSenatorInformation(seniorSenatorCID)
+        if (seniorSenatorCID && juniorSenatorCID) {
+            sendSenatorInformation(seniorSenatorCID, juniorSenatorCID)
         }
-    }, [seniorSenatorCID])
+    }, [seniorSenatorCID, juniorSenatorCID])
 
 
     const sendSenatorInformation = (seniorSenatorCID) => {
-        return fetch(`http://localhost:3000/api_data?cid=${seniorSenatorCID}`) 
+        return fetch(`http://localhost:3000/api_data?cid=${seniorSenatorCID}&cid2=${juniorSenatorCID}`) 
         .then((res) => {
             if (!res.ok) {
                 console.log(res)

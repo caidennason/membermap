@@ -13,24 +13,37 @@ class ApiDataController < ApplicationController
         Rails.logger.info("API Key: #{@api_key}")
 
         cid = params[:cid]
+        cid2 = params[:cid2]
         Rails.logger.info("#{cid}")
-        response_data = []
-
-        # loop through the url to get the most recent year your selected candidate ran for office -- ex: padilla didn't run in 2022, so find the last tiem he ran
+        Rails.logger.info("#{cid2}")
 
         [2022, 2020, 2018, 2016].each do |year|
         begin
         url = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=#{cid}&output=json&cycle=#{year}&apikey=#{@api_key}")
         response = Net::HTTP.get(url)
-        Rails.logger.info("#{year}")
+        url2 = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=#{cid2}&output=json&cycle=#{year}&apikey=#{@api_key}")
+        response2 = Net::HTTP.get(url2)
 
-        if response.present?
+        if response.present? && response2.present? 
+          Rails.logger.info("this is the response: #{response}")
+          Rails.logger.info("this is the second response: #{response2}")
             render json: response
-            return
-          else
-            render json: { error: 'Empty API response' }, status: :unprocessable_entity
-            return
+            render json: response2
+        # elsif response2.present? 
+        #   Rails.logger.info("this is the second response: #{response2}")
+        #   render json: response2
+        else
+          render json: { error: 'Empty API response' }, status: :unprocessable_entity
         end
+
+        # if response2.present? 
+        #   Rails.logger.info("this is the response: #{response2}")
+        #   render json: response2
+        #   return
+        # else
+        #   render json: { error: 'Empty API response' }, status: :unprocessable_entity
+        #   return
+        # end
         
         rescue StandardError => e
           Rails.logger.error("Error fetching API data: #{e.message}")
