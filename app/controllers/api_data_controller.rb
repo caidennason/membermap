@@ -28,8 +28,7 @@ class ApiDataController < ApplicationController
           Rails.logger.info("this is the response: #{response}")
           Rails.logger.info("this is the second response: #{response2} #{cid2} monkey want banana")
           render json: { response: response, response2: response2 }
-        else
-          render json: { error: 'Empty API response' }, status: :unprocessable_entity
+        return
         end
         
         rescue StandardError => e
