@@ -55,11 +55,12 @@ const Map = () => {
             setSeniorSenatorName('Dianne Feinstein')
             setJuniorSenatorCID('N00047888')
             setJuniorSenatorName('Alex Padilla')
-            // sendSenatorInformation(seniorSenatorCID)
         } else if (e.target.dataset.name === "NY") {
             setUsState("New York")
             setSeniorSenatorCID('N00001093')
             setSeniorSenatorName('Chuck Schumer')
+            setJuniorSenatorCID('N00027658')
+            setJuniorSenatorName('Kirsten Gillibrand')
         } else if (e.target.dataset.name === "OR") {
             setUsState("Oregon")
         } else if (e.target.dataset.name === "WA") {
