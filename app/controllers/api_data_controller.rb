@@ -24,10 +24,13 @@ class ApiDataController < ApplicationController
         url2 = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=#{cid2}&output=json&cycle=#{year}&apikey=#{@api_key}")
         response2 = Net::HTTP.get(url2)
 
+        response_json = JSON.parse(response)
+        response2_json = JSON.parse(response2)
+
         if response.present? || response2.present? 
           Rails.logger.info("this is the response: #{response}")
           Rails.logger.info("this is the second response: #{response2} #{cid2} monkey want banana")
-          render json: { response: response, response2: response2 }
+          render json: { response_json: response_json, response2_json: response2_json }
         return
         end
         
