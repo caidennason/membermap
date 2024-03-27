@@ -24,30 +24,16 @@ class ApiDataController < ApplicationController
         url2 = URI.parse("https://www.opensecrets.org/api/?method=candIndustry&cid=#{cid2}&output=json&cycle=#{year}&apikey=#{@api_key}")
         response2 = Net::HTTP.get(url2)
 
-        if response.present? && response2.present? 
+        if response.present? || response2.present? 
           Rails.logger.info("this is the response: #{response}")
-          Rails.logger.info("this is the second response: #{response2}")
-            render json: response
-            render json: response2
-        # elsif response2.present? 
-        #   Rails.logger.info("this is the second response: #{response2}")
-        #   render json: response2
+          Rails.logger.info("this is the second response: #{response2} #{cid2} monkey want banana")
+          render json: { response: response, response2: response2 }
         else
           render json: { error: 'Empty API response' }, status: :unprocessable_entity
         end
-
-        # if response2.present? 
-        #   Rails.logger.info("this is the response: #{response2}")
-        #   render json: response2
-        #   return
-        # else
-        #   render json: { error: 'Empty API response' }, status: :unprocessable_entity
-        #   return
-        # end
         
         rescue StandardError => e
           Rails.logger.error("Error fetching API data: #{e.message}")
-          # render json: { error: 'An error occurred while fetching API data' }, status: :unprocessable_entity
         end
         end
         render json: { error: 'An error occurred while fetching API data' }, status: :unprocessable_entity
