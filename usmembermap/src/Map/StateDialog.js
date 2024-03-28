@@ -18,7 +18,7 @@ const StateDialog = ({dialogState, handleDialogClose, usState, setDialogState, s
             <DialogTitle>{usState}</DialogTitle>
             <DialogContent>
                 <Typography>
-                    In 2022, {usState}'s two senators were {seniorSenatorName} and {juniorSenatorName}.
+                    {usState}'s senators are {seniorSenatorName} and {juniorSenatorName}.
                 </Typography>
             </DialogContent>
         </Dialog>
