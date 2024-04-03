@@ -37,7 +37,9 @@ const Map = () => {
         .then((data) => setFinanceInformation(data));
     }
 
-    console.log(financeInformation)
+    console.log('response 1', financeInformation && financeInformation.response_json ? financeInformation.response_json.response.industries.industry : 'nothing is here');
+    console.log('response 2', financeInformation && financeInformation.response2_json ? financeInformation.response2_json.response.industries.industry : 'nothing is here');
+    
 
     const handleDialogOpen = () => {
         setDialogState(true)
