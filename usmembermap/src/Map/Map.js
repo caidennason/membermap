@@ -37,9 +37,11 @@ const Map = () => {
         .then((data) => setFinanceInformation(data));
     }
 
-    console.log('response 1', financeInformation && financeInformation.response_json ? financeInformation.response_json.response.industries.industry : 'nothing is here');
-    console.log('response 2', financeInformation && financeInformation.response2_json ? financeInformation.response2_json.response.industries.industry : 'nothing is here');
-    
+    const seniorSenatorIndustries = financeInformation && financeInformation.response_json ? financeInformation.response_json.response.industries.industry.map((data) => data['@attributes']) : []
+    const juniorSenatorIndustries =financeInformation && financeInformation.response2_json ? financeInformation.response2_json.response.industries.industry.map((data) => data['@attributes']) : []
+
+    console.log('senior industries: ', seniorSenatorIndustries)
+    console.log('junior industries: ', juniorSenatorIndustries.map((ind) => ind.industry_name))
 
     const handleDialogOpen = () => {
         setDialogState(true)
@@ -342,7 +344,15 @@ const Map = () => {
               <USAMap 
                 onClick={mapHandler} 
               />
-              <StateDialog setDialogState={setDialogState} dialogState={dialogState} handleDialogClose={handleDialogClose} usState={usState} seniorSenatorName={seniorSenatorName} juniorSenatorName={juniorSenatorName}/> 
+            {
+              <StateDialog 
+              setDialogState={setDialogState} 
+              dialogState={dialogState} 
+              handleDialogClose={handleDialogClose} 
+              usState={usState} 
+              seniorSenatorName={seniorSenatorName} 
+              juniorSenatorName={juniorSenatorName}/> 
+            }
         </>
     )
 }
