@@ -44,10 +44,10 @@ const Map = () => {
     console.log('junior industries: ', juniorSenatorIndustries.map((ind) => ind.industry_name))
 
     const seniorSenatorIndustryName = seniorSenatorIndustries.map((ind) => ind.industry_name)
-    const seniorSenatorIndustryAmount = seniorSenatorIndustries.map((ind) => `$${ind.total} from ${ind.industry_name}`)
+    const seniorSenatorIndustryAmount = seniorSenatorIndustries.map((ind) => `$${parseInt(ind.total).toLocaleString('en')} from ${ind.industry_name}`)
     console.log(seniorSenatorIndustryAmount)
 
-    const juniorSenatorIndustryAmount = juniorSenatorIndustries.map((ind) => `$${ind.total} from ${ind.industry_name}`)
+    const juniorSenatorIndustryAmount = juniorSenatorIndustries.map((ind) => `$${parseInt(ind.total).toLocaleString('en')} from ${ind.industry_name}`)
 
 
     const handleDialogOpen = () => {

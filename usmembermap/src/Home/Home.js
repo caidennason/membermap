@@ -12,11 +12,9 @@ const Home = () => {
             <br></br>
             <br></br>
             <IconButton color="inherit">
-                <DryIcon />
                 <Typography>
-                    Hello welcome to da club
+                    Hello welcome to membermap! Membermap uses the OpenSecrets API to easily find where your senators get their campaign money from. Click on a state to see who is funding your senators.
                 </Typography>
-                <DryIcon />
             </IconButton> 
         </div>
     )
