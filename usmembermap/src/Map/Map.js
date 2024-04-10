@@ -43,7 +43,12 @@ const Map = () => {
     console.log('senior industries: ', seniorSenatorIndustries.map((ind) => ind))
     console.log('junior industries: ', juniorSenatorIndustries.map((ind) => ind.industry_name))
 
-    const test = juniorSenatorIndustries.map((ind) => ind.industry_name)
+    const seniorSenatorIndustryName = seniorSenatorIndustries.map((ind) => ind.industry_name)
+    const seniorSenatorIndustryAmount = seniorSenatorIndustries.map((ind) => `$${ind.total} from ${ind.industry_name}`)
+    console.log(seniorSenatorIndustryAmount)
+
+    const juniorSenatorIndustryAmount = juniorSenatorIndustries.map((ind) => `$${ind.total} from ${ind.industry_name}`)
+
 
     const handleDialogOpen = () => {
         setDialogState(true)
@@ -51,6 +56,7 @@ const Map = () => {
 
     const handleDialogClose = () => {
         setDialogState(false)
+        setFinanceInformation([])
     }
 
     const mapHandler = (e) => {
@@ -348,13 +354,26 @@ const Map = () => {
               />
             {
               <StateDialog 
-              contributions={test}
+              seniorSenatorIndustryAmount={seniorSenatorIndustryAmount}
+              juniorSenatorIndustryAmount={juniorSenatorIndustryAmount}
               setDialogState={setDialogState} 
               dialogState={dialogState} 
               handleDialogClose={handleDialogClose} 
               usState={usState} 
               seniorSenatorName={seniorSenatorName} 
-              juniorSenatorName={juniorSenatorName}/> 
+              juniorSenatorName={juniorSenatorName}
+              /> 
+            // seniorSenatorIndustries.map((ind) => {
+            //     <StateDialog 
+            //         ind={ind}
+            //         setDialogState={setDialogState}
+            //         dialogState={dialogState}
+            //         handleDialogClose={handleDialogClose}
+            //         usState={usState}
+            //         seniorSenatorName={seniorSenatorName}
+            //         juniorSenatorName={juniorSenatorName}
+            //     />
+            // })
             }
         </>
     )

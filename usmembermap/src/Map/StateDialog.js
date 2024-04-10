@@ -3,7 +3,7 @@ import {DialogTitle, DialogContent, Typography, Button, Dialog, IconButton} from
 import ClearIcon from '@mui/icons-material/Clear';
 
 
-const StateDialog = ({contributions, dialogState, handleDialogClose, usState, setDialogState, seniorSenatorName, juniorSenatorName}) => {
+const StateDialog = ({juniorSenatorIndustryAmount, seniorSenatorIndustryAmount, dialogState, handleDialogClose, usState, setDialogState, seniorSenatorName, juniorSenatorName}) => {
 
     return (
         <Dialog
@@ -17,7 +17,14 @@ const StateDialog = ({contributions, dialogState, handleDialogClose, usState, se
             <DialogContent>
                 <Typography>
                     {usState}'s senators are {seniorSenatorName} and {juniorSenatorName}.
-                    {contributions}
+                </Typography>
+                <br></br>
+                <Typography>
+                    {seniorSenatorName} took {seniorSenatorIndustryAmount.join(', ')}
+                </Typography>
+                <br></br>
+                <Typography>
+                    {juniorSenatorName} took {juniorSenatorIndustryAmount.join(', ')}
                 </Typography>
             </DialogContent>
         </Dialog>
