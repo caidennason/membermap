@@ -40,8 +40,10 @@ const Map = () => {
     const seniorSenatorIndustries = financeInformation && financeInformation.response_json ? financeInformation.response_json.response.industries.industry.map((data) => data['@attributes']) : []
     const juniorSenatorIndustries =financeInformation && financeInformation.response2_json ? financeInformation.response2_json.response.industries.industry.map((data) => data['@attributes']) : []
 
-    console.log('senior industries: ', seniorSenatorIndustries)
+    console.log('senior industries: ', seniorSenatorIndustries.map((ind) => ind))
     console.log('junior industries: ', juniorSenatorIndustries.map((ind) => ind.industry_name))
+
+    const test = juniorSenatorIndustries.map((ind) => ind.industry_name)
 
     const handleDialogOpen = () => {
         setDialogState(true)
@@ -346,6 +348,7 @@ const Map = () => {
               />
             {
               <StateDialog 
+              contributions={test}
               setDialogState={setDialogState} 
               dialogState={dialogState} 
               handleDialogClose={handleDialogClose} 
