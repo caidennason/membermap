@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import USAMap from 'react-usa-map';
 import StateDialog from './StateDialog';
+import { Typography } from '@mui/material';
 
 const Map = () => {
 
@@ -11,8 +12,7 @@ const Map = () => {
     const [juniorSenatorCID, setJuniorSenatorCID] = useState(null)
     const [juniorSenatorName, setJuniorSenatorName] = useState(null)
     const [financeInformation, setFinanceInformation] = useState([])
-
-    console.log(juniorSenatorCID, juniorSenatorName)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (seniorSenatorCID && juniorSenatorCID) {
@@ -22,6 +22,7 @@ const Map = () => {
 
 
     const sendSenatorInformation = (seniorSenatorCID) => {
+        setLoading(true)
         return fetch(`http://localhost:3000/api_data?cid=${seniorSenatorCID}&cid2=${juniorSenatorCID}`) 
         .then((res) => {
             if (!res.ok) {
@@ -34,19 +35,17 @@ const Map = () => {
             console.log(res); 
             return res.json();
         })
-        .then((data) => setFinanceInformation(data));
+        .then((data) => {
+            setFinanceInformation(data)
+            setLoading(false)
+        });
     }
 
     const seniorSenatorIndustries = financeInformation && financeInformation.response_json ? financeInformation.response_json.response.industries.industry.map((data) => data['@attributes']) : []
     const juniorSenatorIndustries =financeInformation && financeInformation.response2_json ? financeInformation.response2_json.response.industries.industry.map((data) => data['@attributes']) : []
 
-    console.log('senior industries: ', seniorSenatorIndustries.map((ind) => ind))
-    console.log('junior industries: ', juniorSenatorIndustries.map((ind) => ind.industry_name))
 
-    const seniorSenatorIndustryName = seniorSenatorIndustries.map((ind) => ind.industry_name)
     const seniorSenatorIndustryAmount = seniorSenatorIndustries.map((ind) => `$${parseInt(ind.total).toLocaleString('en')} from ${ind.industry_name}`)
-    console.log(seniorSenatorIndustryAmount)
-
     const juniorSenatorIndustryAmount = juniorSenatorIndustries.map((ind) => `$${parseInt(ind.total).toLocaleString('en')} from ${ind.industry_name}`)
 
 
@@ -362,18 +361,8 @@ const Map = () => {
               usState={usState} 
               seniorSenatorName={seniorSenatorName} 
               juniorSenatorName={juniorSenatorName}
+              loading={loading}
               /> 
-            // seniorSenatorIndustries.map((ind) => {
-            //     <StateDialog 
-            //         ind={ind}
-            //         setDialogState={setDialogState}
-            //         dialogState={dialogState}
-            //         handleDialogClose={handleDialogClose}
-            //         usState={usState}
-            //         seniorSenatorName={seniorSenatorName}
-            //         juniorSenatorName={juniorSenatorName}
-            //     />
-            // })
             }
         </>
     )

@@ -14,14 +14,14 @@ const Navbar = () => {
                 <Typography></Typography>
                 <Toolbar>
                     <Stack direction="row" spacing={20}>
-                        <Button color="inherit" component={Link} to='/home'>Home</Button>
+                        <Button color="inherit" component={Link} to='/'>About</Button>
                         <Button color="inherit" component={Link} to='/map'>Map</Button>
                     </Stack>
                 </Toolbar>
             </AppBar>
 
             <Routes>
-                <Route path="/home" element={<Home/>}/>
+                <Route path="/" element={<Home/>}/>
                 <Route path="/map" element={<Map/>}/>
             </Routes>
         </div>
